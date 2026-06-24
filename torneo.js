@@ -58,3 +58,23 @@ console.log("-- nombre y país --");
 paraCadaJugador((n) => {
     console.log(n.nombre + ' - ' + n.pais)
 });
+
+console.log("");
+console.log("%cEtapa 5 · Arrow como 'condición' (predicado)", "font-weight: bold; color: blue; font-size: 15px;");
+
+const contarJugadoresQue = (condicion) => {
+    let contador = 0;
+
+    for (let i=0; i < jugadores.length; i++){
+        if (condicion(jugadores[i])){
+            contador++
+        }
+    }
+    return contador;
+}
+
+const totalMayor400 = jugador => puntajeTotal(jugador) > 400;
+const esChileno = jugador => jugador.pais == "CL"
+
+console.log('Con 400+ puntos: ', contarJugadoresQue(totalMayor400))
+console.log('Del país CL: ' + contarJugadoresQue(esChileno))
