@@ -27,3 +27,15 @@ jugadores.forEach(jugador => {
         `${jugador.nombre}: total ${puntajeTotal(jugador)}, promedio ${promedio(jugador)}`
     );
 });
+
+console.log("");
+console.log("%cEtapa 3 · Una arrow que devuelve un objeto", "font-weight: bold; color: blue; font-size: 15px;");
+
+const crearResumen = (jugador) => ({
+
+    nombre: jugador.nombre,
+    total: puntajeTotal(jugador),
+    promedio: promedio(jugador)
+})
+
+jugadores.forEach(jugador => console.log(crearResumen(jugador)))
