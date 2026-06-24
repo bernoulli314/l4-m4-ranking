@@ -12,7 +12,18 @@ jugadores.forEach((jugador) => {
 });
 
 console.log("");
+console.log("%cEtapa 2 · Funciones utilitarias con arrow", "font-weight: bold; color: blue; font-size: 15px;");
 
 
 
+const puntajeTotal = (jugador) => jugador.puntajes.reduce((acumulado, p) => acumulado + p, 0)
 
+const promedio = (jugador) => puntajeTotal(jugador) / jugador.puntajes.length;
+
+console.log(puntajeTotal)
+
+jugadores.forEach(jugador => {
+    console.log(
+        `${jugador.nombre}: total ${puntajeTotal(jugador)}, promedio ${promedio(jugador)}`
+    );
+});
