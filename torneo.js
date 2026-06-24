@@ -78,3 +78,17 @@ const esChileno = jugador => jugador.pais == "CL"
 
 console.log('Con 400+ puntos: ', contarJugadoresQue(totalMayor400))
 console.log('Del país CL: ' + contarJugadoresQue(esChileno))
+
+console.log("");
+console.log("%cEtapa 6 · Clasificar con valor por defecto", "font-weight: bold; color: blue; font-size: 15px;");
+
+const clasificar = (jugador, minimo = 400) => {
+    return puntajeTotal(jugador) >= minimo
+        ? 'Clasificado'
+        : 'Eliminado';
+};
+
+console.log("-- sin minimo (400) --");
+jugadores.forEach(jugador => console.log(jugador.nombre + ': ' + clasificar(jugador)));
+console.log("-- minimo 300 --");
+jugadores.forEach(jugador => console.log(jugador.nombre + ': ' + clasificar(jugador, minimo=300)));
