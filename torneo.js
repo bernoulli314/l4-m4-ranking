@@ -92,3 +92,20 @@ console.log("-- sin minimo (400) --");
 jugadores.forEach(jugador => console.log(jugador.nombre + ': ' + clasificar(jugador)));
 console.log("-- minimo 300 --");
 jugadores.forEach(jugador => console.log(jugador.nombre + ': ' + clasificar(jugador, minimo=300)));
+
+console.log("");
+console.log("%cEtapa 7 · Medalla por puntaje (guard clauses)", "font-weight: bold; color: blue; font-size: 15px;");
+
+const medalla = (total) => {
+  if (total >= 800) return "🥇 Oro";
+  if (total >= 500) return "🥈 Plata";
+  if (total >= 300) return "🥉 Bronce";
+  return "Sin medalla";
+};
+
+paraCadaJugador((n) => {
+    const total = puntajeTotal(n);
+    const medal = medalla(total);
+
+    console.log(`${n.nombre} (${total}): ${medal}`);
+});
