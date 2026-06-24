@@ -109,3 +109,32 @@ paraCadaJugador((n) => {
 
     console.log(`${n.nombre} (${total}): ${medal}`);
 });
+
+console.log("");
+console.log("%c🏆 Jefe Final · El reporte del torneo", "font-weight: bold; color: blue; font-size: 15px;");
+
+const reporteTorneo = () => {
+    console.log("===== TORNEO GAMER 2026 =====");
+    console.log("");
+    console.log("-- JUGADORES --");
+
+    paraCadaJugador((n) => {
+        const totalJugador = puntajeTotal(n);
+        const promedioJugador = promedio(n);
+        const medallaJugador = medalla(totalJugador);
+        const clasificarJugador = clasificar(n);
+
+        console.log(n.nombre + ': ' + totalJugador + ' pts (prom ' + promedioJugador + ') → '+ medallaJugador + ' → ' + clasificarJugador);
+    })
+
+    console.log("");
+    console.log("-- ESTADÍSTICAS --");
+
+    const clasificados = contarJugadoresQue((n) => puntajeTotal(n) >= 400);
+    const deCL = contarJugadoresQue((n) => n.pais === "CL");
+
+    console.log(`Clasificados a la final: ${clasificados}`);
+    console.log(`Jugadores de CL: ${deCL}`);
+}
+
+reporteTorneo()
