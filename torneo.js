@@ -39,3 +39,22 @@ const crearResumen = (jugador) => ({
 })
 
 jugadores.forEach(jugador => console.log(crearResumen(jugador)))
+
+console.log("");
+console.log("%cEtapa 4 · Tu propio 'para cada jugador'", "font-weight: bold; color: blue; font-size: 15px;");
+
+const paraCadaJugador = (accion) => {
+    for (let i=0; i < jugadores.length; i++){
+        accion(jugadores[i]);
+    }
+};
+
+console.log("-- solo nombre --");
+paraCadaJugador((n) => {
+  console.log(n.nombre);
+});
+
+console.log("-- nombre y país --");
+paraCadaJugador((n) => {
+    console.log(n.nombre + ' - ' + n.pais)
+});
